@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bongzito Eyewear</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#"><img src="assets/logo.png" alt="Bongzito Eyewear"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cart">
+                <a href="#">Cart (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="assets/slide-1.png" style="width:100%">
+                <div class="text">
+                    <h1>Bongszito Eyewear</h1>
+                    <p>Performance meets style. Built for everyday and on-the-go.</p>
+                    <a href="#collection" class="btn">Explore Collection</a>
+                </div>
+            </div>
+            <div class="slide fade">
+                <img src="assets/slide-2.png" style="width:100%">
+                <div class="text">
+                    <h1>Bongszito Eyewear</h1>
+                    <p>Performance meets style. Built for everyday and on-the-go.</p>
+                    <a href="#collection" class="btn">Explore Collection</a>
+                </div>
+            </div>
+            <div class="slide fade">
+                <img src="assets/slide-3.png" style="width:100%">
+                <div class="text">
+                    <h1>Bongszito Eyewear</h1>
+                    <p>Performance meets style. Built for everyday and on-the-go.</p>
+                    <a href="#collection" class="btn">Explore Collection</a>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <section id="collection" class="collection">
+        <div class="container">
+            <h2>Our Collection</h2>
+            <p>Discover the perfect pair that matches your style and personality</p>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="assets/product-1.png" alt="Pink Lense Sunglasses">
+                    <h3>Pink Lense Sunglasses</h3>
+                    <p>Lightweight construction, double bridge, distinctive classic look</p>
+                    <p class="price">R120</p>
+                    <a href="#" class="btn">View Details &rarr;</a>
+                </div>
+                <div class="product-card">
+                    <img src="assets/product-2.png" alt="Blue Lense Sunglasses">
+                    <h3>Blue Lense Sunglasses</h3>
+                    <p>Lightweight construction, double bridge, distinctive classic look</p>
+                    <p class="price">R120</p>
+                    <a href="#" class="btn">View Details &rarr;</a>
+                </div>
+                <div class="product-card">
+                    <img src="assets/product-3.png" alt="Black Modern Design">
+                    <h3>Black Modern Design</h3>
+                    <p>Modern design with black lens and frame</p>
+                    <p class="price">R80</p>
+                    <a href="#" class="btn">View Details &rarr;</a>
+                </div>
+                <div class="product-card">
+                    <img src="assets/product-4.png" alt="Black & White Classic">
+                    <h3>Black & White Classic</h3>
+                    <p>Black lenses with white frame, distinctive style</p>
+                    <p class="price">R100</p>
+                    <a href="#" class="btn">View Details &rarr;</a>
+                </div>
+                <div class="product-card">
+                    <img src="assets/product-5.png" alt="All Black Sports">
+                    <h3>All Black Sports</h3>
+                    <p>Unisex sports style sunglasses</p>
+                    <p class="price">R140</p>
+                    <a href="#" class="btn">View Details &rarr;</a>
+                </div>
+                <div class="product-card">
+                    <img src="assets/product-6.png" alt="White Sports Silver">
+                    <h3>White Sports Silver</h3>
+                    <p>White frames with silver lenses, unisex sports style</p>
+                    <p class="price">R140</p>
+                    <a href="#" class="btn">View Details &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bongzito Eyewear. All rights reserved.</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
