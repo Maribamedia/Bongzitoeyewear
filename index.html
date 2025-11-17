@@ -449,43 +449,83 @@
             color: var(--text-light);
         }
 
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-status {
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        .form-status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+            display: block;
+        }
+
+        .form-status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+            display: block;
+        }
+
         /* Footer */
         .footer {
             background: var(--primary);
             color: white;
-            padding: 3rem 0 2rem;
+            padding: 2rem 0 1rem;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
         }
 
-        .footer-col h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            position: relative;
-            padding-bottom: 0.5rem;
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
         }
 
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--accent);
+        .footer-logo span {
+            color: var(--accent);
         }
 
         .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .footer-links a {
@@ -496,12 +536,12 @@
 
         .footer-links a:hover {
             color: white;
-            padding-left: 5px;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
             border-top: 1px solid #374151;
             color: #9ca3af;
             font-size: 0.9rem;
@@ -620,6 +660,11 @@
                 width: 50px;
                 height: 50px;
                 font-size: 1.5rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
@@ -829,15 +874,19 @@
                 </div>
                 <div class="contact-form">
                     <h3>Send us a message</h3>
-                    <form id="contactForm">
-                        <div style="margin-bottom: 1rem;">
-                            <input type="text" placeholder="Your Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                    <form id="contactForm" action="https://formspree.io/f/mjvnewjg" method="POST">
+                        <div id="formStatus" class="form-status"></div>
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
-                        <div style="margin-bottom: 1rem;">
-                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                         </div>
-                        <div style="margin-bottom: 1rem;">
-                            <textarea placeholder="Your Message" rows="5" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);"></textarea>
+                        <div class="form-group">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-block">Send Message</button>
                     </form>
@@ -849,40 +898,18 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Bongzito Eyewear</h3>
-                    <p>Premium quality sunglasses with UV400 protection and polarized lenses. Style and protection in every pair.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#testimonials">Reviews</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><a href="mailto:sales@bongzitoeyewear.co.za">sales@bongzitoeyewear.co.za</a></li>
-                        <li><a href="tel:+27717832240">+27 71 783 2240</a></li>
-                        <li>South Africa</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Follow Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                    </ul>
+            <div class="footer-content">
+                <div class="footer-logo">BONG<span>ZITO</span></div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#features">Features</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#contact">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Bongzito Eyewear. All rights reserved.</p>
+                <p>&copy; 2025 Bongzito Eyewear. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -893,63 +920,91 @@
     </a>
 
     <script>
-        // Product Data
+        // Product Data with updated prices
         const products = [
             {
                 id: 1,
-                name: "Classic Aviator",
-                price: "R149.99",
-                description: "Timeless aviator style with UV400 protection and gold metal frames. Perfect for everyday wear.",
-                image: "images/IMG-20251105-WA0008.jpg"
+                name: "Classic Black & Blue",
+                price: "R170",
+                description: "Black frames with dark blue lens style sunglasses. Perfect for everyday casual wear with UV400 protection.",
+                image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
             },
             {
                 id: 2,
-                name: "Sport Polarized",
-                price: "R169.99",
-                description: "Sporty design with blue polarized lenses. Enhanced contrast and reduced glare for active lifestyles.",
-                image: "images/IMG-20251105-WA0014.jpg"
+                name: "Vintage Brown Double Bridge",
+                price: "R120",
+                description: "Brown lens lightweight construction for all day comfort and a double bridge for a distinctive, classic look.",
+                image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
             },
             {
                 id: 3,
-                name: "Vintage Round",
-                price: "R159.99",
-                description: "Retro-inspired round frames with brown tinted lenses. A classic look with modern UV protection.",
-                image: "images/IMG-20251105-WA0010.jpg"
+                name: "Black Frames Green Lens",
+                price: "R170",
+                description: "Stylish design black sunglasses with dark green lenses for men. Modern look with maximum eye protection.",
+                image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
             },
             {
                 id: 4,
-                name: "Modern Square",
-                price: "R179.99",
-                description: "Contemporary square frames with silver metal accents. Stylish design with maximum eye protection.",
-                image: "images/IMG-20251105-WA0012.jpg"
+                name: "Sport Silver Frames",
+                price: "R180",
+                description: "Unisex sports style sunglasses with silver frames. Durable and lightweight for active lifestyles.",
+                image: "https://images.unsplash.com/photo-1583336663277-620dc1996580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
             },
             {
                 id: 5,
-                name: "Luxury Gold",
-                price: "R189.99",
-                description: "Premium gold frames with gradient lenses. Elegant design that combines style and functionality.",
-                image: "images/IMG-20251105-WA0011.jpg"
+                name: "Classic All Black Female",
+                price: "R130",
+                description: "Classic all black sunglasses for females. Timeless elegance with modern UV protection technology.",
+                image: "https://images.unsplash.com/photo-1571687949921-1306bfb24c72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
             },
             {
                 id: 6,
-                name: "Retro Cat Eye",
-                price: "R164.99",
-                description: "Fashionable cat eye frames with UV400 protection. A feminine touch with superior lens quality.",
-                image: "images/IMG-20251105-WA0009.jpg"
+                name: "Double Bridge Blue",
+                price: "R130",
+                description: "Dark blue lens lightweight construction for all day comfort and a double bridge for a distinctive, classic look.",
+                image: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
             },
             {
                 id: 7,
-                name: "Oversized Fashion",
-                price: "R174.99",
-                description: "Trendy oversized frames for maximum coverage. Polarized lenses reduce glare in bright conditions.",
-                image: "images/IMG-20251105-WA0007.jpg"
+                name: "All Black Female Style",
+                price: "R130",
+                description: "All black female style sunglasses. Sleek design with polarized lenses for superior visual clarity.",
+                image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
             },
             {
                 id: 8,
-                name: "Classic Wayfarer",
-                price: "R169.99",
-                description: "Iconic wayfarer design with black frames. Timeless style with modern UV400 lens technology.",
-                image: "images/IMG-20251105-WA0006.jpg"
+                name: "Thick Frame Black Women",
+                price: "R190",
+                description: "Thick frame all black sunglasses for women. Bold statement piece with maximum coverage and protection.",
+                image: "https://images.unsplash.com/photo-1571687949921-1306bfb24c72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 9,
+                name: "Purple Sports Unisex",
+                price: "R180",
+                description: "Purple sports style sunglasses unisex. Vibrant color with durable construction for active use.",
+                image: "https://images.unsplash.com/photo-1583336663277-620dc1996580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 10,
+                name: "Black Frames Colorful Lens",
+                price: "R220",
+                description: "Black frames with colourful lenses sports style sunglasses unisex. Fun and functional for outdoor activities.",
+                image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 11,
+                name: "White Frames Colorful Lens",
+                price: "R220",
+                description: "White frames with colourful lenses sports style sunglasses unisex. Bright and bold design for fashion-forward individuals.",
+                image: "https://images.unsplash.com/photo-1571687949921-1306bfb24c72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 12,
+                name: "Green Stylish Women",
+                price: "R200",
+                description: "Green colour stylish sunglasses for women. Fashionable frames with premium lens technology for clear vision.",
+                image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
             }
         ];
 
@@ -986,10 +1041,48 @@
             });
             
             // Contact form submission
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+            
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
+                
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                
+                // Show loading state
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+                
+                try {
+                    const formData = new FormData(this);
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        formStatus.textContent = 'Thank you for your message! We will get back to you soon.';
+                        formStatus.className = 'form-status success';
+                        this.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    formStatus.textContent = 'Sorry, there was an error sending your message. Please try again or contact us directly.';
+                    formStatus.className = 'form-status error';
+                } finally {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    
+                    // Hide status message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                }
             });
         });
 
