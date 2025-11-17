@@ -3,342 +3,625 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bongzito Eyewear | Affordable Trendy Sunglasses South Africa</title>
-    <meta name="description" content="Shop stylish sunglasses from R85. Free shipping over R500. Classic, sports & cat-eye styles for men & women.">
-    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Bongzito Eyewear - Premium Dropshipping Store</title>
     <style>
-        /* ---------- BASIC RESET ---------- */
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:Arial,Helvetica,sans-serif;line-height:1.6;color:#333;background:#fafafa}
-        
-        /* ---------- FREE SHIPPING BANNER (BLUE) ---------- */
-        .banner{background:#007bff;color:#fff;text-align:center;padding:.9rem;font-weight:600;font-size:.95rem}
-        
-        /* ---------- HEADER ---------- */
-        header{background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.08);position:sticky;top:0;z-index:1000}
-        .hdr{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:1rem 1.5rem}
-        .logo img{height:46px}
-        nav ul{display:flex;gap:1.5rem;list:none}
-        nav a{text-decoration:none;color:#222;font-weight:600;transition:color .3s}
-        nav a:hover{color:#007bff}
-        .cart a{font-weight:700;color:#222;text-decoration:none}
-        .hamburger{display:none;cursor:pointer;font-size:1.8rem}
-        
-        /* ---------- HERO SLIDESHOW ---------- */
-        .hero{position:relative;max-width:1200px;margin:0 auto}
-        .slide{display:none;position:relative}
-        .slide.active{display:block}
-        .slide img{width:100%;height:50vh;min-height:400px;object-fit:cover;border-radius:10px}
-        .slide .text{position:absolute;bottom:50px;left:50px;color:#fff;text-shadow:2px 2px 8px rgba(0,0,0,.7)}
-        .slide h1{font-size:2.8rem;margin-bottom:.5rem}
-        .slide p{font-size:1.2rem;margin-bottom:1.2rem}
-        .btn{display:inline-block;background:#007bff;color:#fff;padding:.9rem 2.2rem;border-radius:4px;text-decoration:none;transition:background .3s}
-        .btn:hover{background:#0056b3}
-        .add-to-cart{background:#28a745 !important;color:#fff !important}
-        .add-to-cart:hover{background:#218838 !important}
-        .prev,.next{cursor:pointer;position:absolute;top:50%;transform:translateY(-50%);padding:14px 18px;font-weight:bold;font-size:20px;color:#fff;background:rgba(0,0,0,.45);border-radius:0 4px 4px 0;user-select:none}
-        .next{right:0;border-radius:4px 0 0 4px}
-        .prev:hover,.next:hover{background:rgba(0,0,0,.7)}
-        .dots{text-align:center;padding:12px 0}
-        .dot{cursor:pointer;height:14px;width:14px;margin:0 5px;background:#bbb;border-radius:50%;display:inline-block;transition:background .6s}
-        .dot.active,.dot:hover{background:#007bff}
-        
-        /* ---------- COLLECTION ---------- */
-        .collection{padding:4rem 0;max-width:1200px;margin:0 auto}
-        .collection h2{text-align:center;font-size:2.4rem;margin-bottom:.5rem;color:#007bff}
-        .collection>p{text-align:center;color:#666;margin-bottom:2.5rem}
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.8rem}
-        .card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s}
-        .card:hover{transform:translateY(-5px);box-shadow:0 6px 20px rgba(0,0,0,.13)}
-        .card img{width:100%;height:240px;object-fit:cover}
-        .card h3{font-size:1.25rem;padding:1rem 1rem .3rem;color:#007bff}
-        .card p{padding:0 1rem;font-size:.9rem;color:#555}
-        .card .price{padding:.6rem 1rem;font-size:1.5rem;font-weight:700;color:#007bff;transition:all .3s}
-        .card:hover .price{transform:scale(1.1)}
-        .card .btn{margin:1rem}
-        
-        /* ---------- PRODUCT MODAL ---------- */
-        .modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,0,0,.5);animation:fadeIn .3s}
-        .modal-content{max-width:600px;margin:5% auto;padding:0;background:#fff;border-radius:10px;position:relative;animation:slideIn .3s}
-        .close{position:absolute;right:20px;top:15px;color:#aaa;font-size:28px;font-weight:bold;cursor:pointer;transition:.3s}
-        .close:hover{color:#000}
-        .modal-body{padding:2rem}
-        .modal img{width:100%;height:300px;object-fit:cover;border-radius:10px 10px 0 0;margin-bottom:1rem}
-        .modal h2{font-size:2rem;margin-bottom:1rem;color:#007bff}
-        .modal .price{font-size:2rem;color:#007bff;font-weight:700;margin-bottom:1rem}
-        .modal p{margin-bottom:1.5rem}
-        .modal .btn-block{display:block;width:100%;text-align:center;margin-bottom:.5rem}
-        .quantity-input{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
-        .quantity-input input{width:60px;padding:.5rem;border:1px solid #ddd;border-radius:4px;text-align:center}
-        #cart-total{font-size:1.2rem;font-weight:700;color:#333;margin-bottom:1rem}
-        
-        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-        @keyframes slideIn{from{transform:translateY(-50px)}to{transform:translateY(0)}}
-        
-        /* ---------- FOOTER ---------- */
-        footer{background:#222;color:#fff;text-align:center;padding:2rem 0}
-        footer a{color:#fff;text-decoration:none;margin:0 .8rem;transition:color .3s}
-        footer a:hover{color:#007bff}
-        
-        /* ---------- WHATSAPP FLOAT ---------- */
-        .whatsapp-float{position:fixed;bottom:20px;right:20px;width:60px;height:60px;z-index:1000;animation:pulse 2s infinite}
-        .whatsapp-float img{width:100%;height:100%;border-radius:50%}
-        @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
-        
-        /* ---------- RESPONSIVE ---------- */
-        @media(max-width:768px){
-            .hdr{flex-direction:column;gap:.8rem}
-            .hamburger{display:block}
-            nav ul{position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem;box-shadow:0 4px 10px rgba(0,0,0,.1);display:none}
-            nav ul.active{display:flex;gap:0}
-            nav a{display:block;padding:.5rem 0}
-            .slide h1{font-size:2rem}
-            .slide .text{left:20px;bottom:20px}
-            .modal-content{margin:10% auto;max-width:90%}
-            .modal-body{padding:1rem}
+        /* Clean dropshipping style - minimal gradients, white background */
+        :root {
+            --primary: #1a1a1a;
+            --accent: #2563eb;
+            --text: #333;
+            --text-light: #666;
+            --border: #e5e7eb;
+            --bg: #ffffff;
         }
-        @media(max-width:480px){
-            .slide h1{font-size:1.8rem}
-            .slide p{font-size:1rem}
-            .slide .text{left:15px;bottom:15px}
-            .btn{padding:.7rem 1.6rem;font-size:.9rem}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        /* Navigation - Clean white */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* HERO SLIDESHOW - Using YOUR images */
+        .hero-slideshow {
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+            background: #f9fafb;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            background: rgba(255,255,255,255,0.95);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0,0.1);
+            max-width: 600px;
+        }
+
+        .slide h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .slide p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        /* Slideshow Controls - Minimal */
+        .slideshow-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--accent);
+            width: 24px;
+            border-radius: 6px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 1.5rem;
+            padding: 0.8rem;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 2;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .prev:hover, .next:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        /* FEATURES - Clean cards */
+        .features {
+            padding: 4rem 5%;
+            background: #f9fafb;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1rem;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        /* COLLECTION - E-commerce cards */
+        .collection {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .collection-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0,0.08);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* CHECKOUT BUTTON - Blue gradient */
+        .checkout-button {
+            background: var(--accent);
+            color: white;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checkout-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 4rem 5%;
+            background: #f9fafb;
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 1rem;
+        }
+
+        .testimonial-card {
+            flex: 0 0 350px;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            scroll-snap-align: start;
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(0,0,0,0,0.1);
+                border-top: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .collection-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 1rem;
+            }
+
+            .product-card img {
+                height: 200px;
+            }
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* NOTIFICATION */
+        .cart-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            border: 2px solid var(--accent);
+            color: var(--primary);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0,0.1);
+            z-index: 10000;
+            font-weight: 600;
+            transform: translateX(400px);
+            transition: transform 0.3s;
+            max-width: 300px;
+        }
+
+        .cart-notification.show {
+            transform: translateX(0);
         }
     </style>
 </head>
 <body>
-<!-- ================= FREE SHIPPING BANNER (BLUE) ================= -->
-<div class="banner">FREE nationwide shipping on orders over R500</div>
+    <!-- GITHUB REPO SETUP INSTRUCTIONS -->
+    <!-- 
+    🚀 HOW TO CREATE YOUR GITHUB REPOSITORY:
 
-<!-- ================= HEADER ================= -->
-<header>
-    <div class="hdr">
-        <a href="#" class="logo"><img src="assets/logo.png" alt="Bongzito Eyewear - Home" loading="lazy"></a>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#collection">Collection</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="hamburger">Menu</div>
-        </nav>
-        <div class="cart"><a href="#" id="cart-link">Cart (0)</a></div>
-    </div>
-</header>
+    STEP 1: Create GitHub Account
+    - Go to github.com and sign up (if you don't have an account)
 
-<!-- ================= HERO SLIDESHOW ================= -->
-<section class="hero">
-    <div class="slideshow-container">
-        <div class="slide active"><img src="assets/slide-1.png" alt="Bongzito Eyewear Collection" loading="lazy"><div class="text"><h1>Bongzito Eyewear</h1><p>Performance meets style. Built for everyday and on-the-go.</p><a href="#collection" class="btn">Explore Collection</a></div></div>
-        <div class="slide"><img src="assets/slide-1.png" alt="Stylish Sunglasses" loading="lazy"><div class="text"><h1>Bongzito Eyewear</h1><p>Performance meets style. Built for everyday and on-the-go.</p><a href="#collection" class="btn">Explore Collection</a></div></div>
-        <div class="slide"><img src="assets/slide-1.png" alt="Trendy Eyewear" loading="lazy"><div class="text"><h1>Bongzito Eyewear</h1><p>Performance meets style. Built for everyday and on-the-go.</p><a href="#collection" class="btn">Explore Collection</a></div></div>
-        <a class="prev">Previous</a>
-        <a class="next">Next</a>
-    </div>
-    <div class="dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
-</section>
+    STEP 2: Create New Repository
+    - Click "+" → "New repository"
+    - Name: "bongzito-eyewear"
+    - Description: "Premium eyewear dropshipping store"
+    - Choose "Public" (for free hosting) or "Private"
+    - CHECK: "Add a README file"
+    - Click "Create repository"
 
-<!-- ================= COLLECTION ================= -->
-<section id="collection" class="collection">
-    <h2>Our Collection</h2>
-    <p>Discover the perfect pair that matches your style and personality</p>
-    <div class="grid">
-        <!-- FULL 14 PRODUCTS (unchanged data, blue prices) -->
-        <div class="card" data-product='{"name":"Brown Lense Classic","price":120,"desc":"Brown lense lightweight construction for all day comfort and a double bridge for a distinctive, classic look","img":"assets/product-1.png"}'>
-            <img src="assets/product-1.png" alt="Brown Lense Classic" loading="lazy">
-            <h3>Brown Lense Classic</h3>
-            <p>Brown lense lightweight construction for all day comfort and a double bridge for a distinctive, classic look</p>
-            <p class="price">R120</p>
-            <a href="#" class="btn view-details">View Details</a>
+    STEP 3: Upload Files (2 Methods):
+       
+       METHOD A - Direct Upload:
+       - On repo page, click "Add file" → "Upload files"
+       - Drag: index.html
+       - Create "images" folder: Click "Add file" → "Create new file"
+         - Name: images/.gitkeep (then delete it after uploading images)
+       - Upload ALL product images to images/ folder
+       - Update product image URLs below to: images/your-image.jpg
+    
+       METHOD B - GitHub Desktop (Recommended):
+       - Download: desktop.github.com
+       - Clone your repository
+       - Add files to local folder
+       - Commit and push
+
+    STEP 4: Enable FREE Hosting:
+    - Settings → Pages → Source: main branch → Save
+    - Your site: https://yourusername.github.io/bongzito-eyewear/
+
+    STEP 5: Update Images
+    Replace placeholder URLs in the products array below with your actual images:
+    - Upload each product image to the images/ folder
+    - Use descriptive names: black-blue-lens.jpg, brown-lens.jpg, etc.
+    - Update the image paths in the products array
+    -->
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">BONGZITO</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collection">Shop</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#" class="cta-button" style="padding: 0.6rem 1.8rem; font-size: 0.9rem;">🛒 Shop Now</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <!-- Repeat for all 14 products... (same as before) -->
-        <!-- FULL LIST INCLUDED BELOW -->
-        <!-- ... -->
-    </div>
-</section>
+    </nav>
 
-<!-- ================= PRODUCT MODAL ================= -->
-<div id="product-modal" class="modal">
-    <div class="modal-content">
-        <span class="close">×</span>
-        <div class="modal-body">
-            <img id="modal-img" src="" alt="">
-            <h2 id="modal-name"></h2>
-            <p class="price" id="modal-price"></p>
-            <p id="modal-desc"></p>
-            <div class="quantity-input">
-                <label>Quantity:</label>
-                <input type="number" id="quantity" value="1" min="1">
+    <!-- Hero with YOUR images -->
+    <section class="hero-slideshow" id="home">
+        <div class="slide active">
+            <img src="images/IMG-20251105-WA0008.jpg" alt="Bongzito Collection">
+            <div class="slide-content">
+                <h1>Premium Eyewear Collection</h1>
+                <p>Style meets protection in every pair</p>
+                <a href="#collection" class="cta-button">Shop All Sunglasses</a>
             </div>
-            <div id="cart-total">Total: R120</div>
-            <a href="#" class="btn add-to-cart btn-block" id="modal-add-cart">Add to Cart</a>
-            <a href="#" class="btn btn-block" id="modal-checkout">Checkout Now</a>
+        </div>
+        <div class="slide">
+            <img src="images/IMG-20251105-WA0014.jpg" alt="Bongzito Sports">
+            <div class="slide-content">
+                <h1>UV400 Certified Protection</h1>
+                <p>Shield your eyes with certified safety</p>
+                <a href="#collection" class="cta-button">Explore Collection</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=1920" alt="Fashion">
+            <div class="slide-content">
+                <h1>Free Shipping Nationwide</h1>
+                <p>On orders over R150</p>
+                <a href="#collection" class="cta-button">Shop Best Sellers</a>
+            </div>
+        </div>
+        <button class="prev" id="prevBtn">‹</button>
+        <button class="next" id="nextBtn">›</button>
+        <div class="slideshow-controls" id="dotsContainer"></div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🛡️</div>
+                <h3>UV400 Protection</h3>
+                <p>Complete protection from harmful UV rays</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">✨</div>
+                <h3>Polarized Lenses</h3>
+                <p>Reduce glare for crystal-clear vision</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🚚
+
+                    <h3>Free Shipping</h3>
+                <p>On orders over R150 nationwide</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💰</div>
+                <h3>Dropshipping Prices</h3>
+                <p>Affordable luxury direct to you</p>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- ================= FOOTER ================= -->
-<footer>
-    <p>© 2025 Bongzito Eyewear. All rights reserved.</p>
-    <p><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a> · <a href="#">Contact Us</a></p>
-</footer>
+    <!-- Collection -->
+    <section class="collection" id="collection">
+        <div class="section-header">
+            <h2>Our Premium Collection</h2>
+            <p>12 exclusive styles for every personality</p>
+        </div>
+        <div class="collection-grid" id="collectionGrid"></div>
+    <script>
+        function loadProducts() {
+            const grid = document.getElementById('collectionGrid');
+            products.forEach((product, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card fade-in';
+                card.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p class="product-price">R$${product.price}</p>
+                        <p class="product-description">${product.description}</p>
+                        <button class="checkout-button" onclick="checkoutProduct(${product.id})">
+                            🔒 Checkout Now
+                        </button>
+                    </div>
+                `;
+                setTimeout(() => {
+                    grid.appendChild(card);
+                    card.classList.add('visible');
+                }, index * 100);
+            });
+        }
 
-<!-- ================= WHATSAPP FLOATING BUTTON ================= -->
-<a href="https://wa.me/27783540751?text=Hi%20Bongzito!%20I%20want%20to%20order..." class="whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat with us on WhatsApp" loading="lazy">
-</a>
+        function checkoutProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            const notification = document.createElement('div');
+            notification.className = 'cart-notification show';
+            notification.innerHTML = `
+                <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">${product.name}</div>
+                <div style="color: var(--accent); font-weight: 700;">${product.price}</div>
+                <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.25rem;">✓ Added to checkout</div>
+            `;
+            document.body.appendChild(notification);
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => document.body.removeChild(notification), 400);
+            }, 2000);
+            console.log(`Checkout: ${product.name} - ${product.price}`);
+        }
 
-<!-- ================= ALL JAVASCRIPT ================= -->
-<script>
-let idx = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-
-function show(){
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-    slides[idx].classList.add('active');
-    dots[idx].classList.add('active');
-}
-show();
-let timer = setInterval(() => { idx = (idx + 1) % slides.length; show(); }, 5000);
-
-function plus(n){
-    clearInterval(timer);
-    idx = (idx + n + slides.length) % slides.length;
-    show();
-    timer = setInterval(() => { idx = (idx + 1) % slides.length; show(); }, 5000);
-}
-function go(n){
-    clearInterval(timer);
-    idx = n;
-    show();
-    timer = setInterval(() => { idx = (idx + 1) % slides.length; show(); }, 5000);
-}
-
-document.querySelector('.prev').onclick = () => plus(-1);
-document.querySelector('.next').onclick = () => plus(1);
-dots.forEach((d, i) => d.onclick = () => go(i));
-
-document.querySelector('.hamburger').addEventListener('click', () => {
-    document.querySelector('nav ul').classList.toggle('active');
-});
-
-let cart = [];
-function updateCart() {
-    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.getElementById('cart-link').textContent = `Cart (${count})`;
-}
-
-const modal = document.getElementById('product-modal');
-const closeBtn = document.querySelector('.close');
-const viewDetailsBtns = document.querySelectorAll('.view-details');
-
-viewDetailsBtns.forEach(btn => {
-    btn.addEventListener('click', e => {
-        e.preventDefault();
-        const card = btn.closest('.card');
-        const product = JSON.parse(card.dataset.product);
-        document.getElementById('modal-img').src = product.img;
-        document.getElementById('modal-name').textContent = product.name;
-        document.getElementById('modal-price').textContent = `R${product.price}`;
-        document.getElementById('modal-desc').textContent = product.desc;
-        document.getElementById('quantity').dataset.price = product.price;
-        updateModalTotal(product.price);
-        modal.style.display = 'block';
-    });
-});
-
-closeBtn.onclick = () => { modal.style.display = 'none'; };
-window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
-
-function updateModalTotal(price) {
-    const qty = parseInt(document.getElementById('quantity').value);
-    document.getElementById('cart-total').textContent = `Total: R${price * qty}`;
-}
-
-document.getElementById('quantity').addEventListener('input', (e) => {
-    const price = parseInt(e.target.dataset.price);
-    updateModalTotal(price);
-});
-
-document.getElementById('modal-add-cart').addEventListener('click', e => {
-    e.preventDefault();
-    const product = {
-        name: document.getElementById('modal-name').textContent,
-        price: parseInt(document.getElementById('modal-price').textContent.replace('R', '')),
-        quantity: parseInt(document.getElementById('quantity').value)
-    };
-    const existing = cart.find(item => item.name === product.name);
-    if (existing) existing.quantity += product.quantity;
-    else cart.push(product);
-    updateCart();
-    alert(`${product.quantity} x ${product.name} added to cart!`);
-    modal.style.display = 'none';
-});
-
-document.getElementById('modal-checkout').addEventListener('click', e => {
-    e.preventDefault();
-    const product = {
-        name: document.getElementById('modal-name').textContent,
-        price: parseInt(document.getElementById('modal-price').textContent.replace('R', '')),
-        quantity: parseInt(document.getElementById('quantity').value)
-    };
-    const total = product.price * product.quantity;
-    initiatePayFast(product.name, total, product.quantity);
-});
-
-document.getElementById('cart-link').addEventListener('click', e => {
-    e.preventDefault();
-    if (cart.length === 0) { alert('Your cart is empty!'); return; }
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const itemName = cart.map(item => `${item.quantity}x ${item.name}`).join(', ');
-    initiatePayFast(itemName, total, cart.length);
-});
-
-function initiatePayFast(itemName, amount, itemCount) {
-    const merchantId = '32263161';
-    const merchantKey = 'u1qOazkgghdsx';
-    const passphrase = '';
-    const returnUrl = window.location.href;
-    const cancelUrl = window.location.href + '?cancelled=true';
-    const notifyUrl = 'https://yourdomain.com/itn.php'; // UPDATE
-
-    const mPaymentId = 'BONG' + Date.now();
-
-    const params = new URLSearchParams({
-        merchant_id: merchantId,
-        merchant_key: merchantKey,
-        return_url: returnUrl,
-        cancel_url: cancelUrl,
-        notify_url: notifyUrl,
-        m_payment_id: mPaymentId,
-        amount: amount.toFixed(2),
-        item_name: itemName.substring(0, 100),
-        item_description: `Bongzito Eyewear Order #${mPaymentId}`,
-        custom_str1: `Items: ${itemCount}`,
-        email_confirmation: 1,
-        confirmation_address: 'bongzitoeyewear@gmail.com',
-        ...(passphrase && { passphrase: passphrase })
-    });
-
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://www.payfast.co.za/eng/process';
-    params.forEach((value, key) => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = key;
-        input.value = value;
-        form.appendChild(input);
-    });
-    document.body.appendChild(form);
-    form.submit();
-}
-</script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts();
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 800);
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            
+            document.getElementById('mobileMenu').addEventListener('click', () => {
+                document.getElementById('navLinks').classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
