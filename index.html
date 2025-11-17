@@ -3,257 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bongzito Eyewear - Premium Dropshipping Store</title>
+    <title>Bongzito Eyewear - Premium Sunglasses & Eyewear</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Clean dropshipping style - minimal gradients, white background */
+        /* CSS Variables */
         :root {
             --primary: #1a1a1a;
             --accent: #2563eb;
-            --text: #333;
-            --text-light: #666;
+            --accent-dark: #1d4ed8;
+            --text: #333333;
+            --text-light: #666666;
             --border: #e5e7eb;
             --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+            --transition: all 0.3s ease;
         }
 
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
+            overflow-x: hidden;
         }
 
-        /* Navigation - Clean white */
-        nav {
-            position: sticky;
-            top: 0;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
             width: 100%;
-            background: var(--bg);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Fixed: removed extra comma */
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 24px;
-            height: 2px;
-            background: var(--primary);
-            transition: 0.3s;
-        }
-
-        /* HERO SLIDESHOW - Using YOUR images */
-        .hero-slideshow {
-            height: 70vh;
-            position: relative;
-            overflow: hidden;
-            background: #f9fafb;
-        }
-
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 2rem;
-        }
-
-        .slide-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            background: rgba(255,255,255,0.95); /* Fixed: removed extra alpha value */
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Fixed: removed extra comma */
-            max-width: 600px;
-        }
-
-        .slide h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .slide p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 0.9rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-        }
-
-        /* Slideshow Controls - Minimal */
-        .slideshow-controls {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 2;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #d1d5db;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background: var(--accent);
-            width: 24px;
-            border-radius: 6px;
-        }
-
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            border: 1px solid var(--border);
-            color: var(--text);
-            font-size: 1.5rem;
-            padding: 0.8rem;
-            cursor: pointer;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            z-index: 2;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Fixed: removed extra comma */
-        }
-
-        .prev:hover, .next:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-
-        .prev { left: 20px; }
-        .next { right: 20px; }
-
-        /* FEATURES - Clean cards */
-        .features {
-            padding: 4rem 5%;
-            background: #f9fafb;
-        }
-
-        .features-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            padding: 0 1rem;
         }
 
-        .feature-card {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Fixed: removed extra comma */
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 1rem;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: white;
-        }
-
-        /* COLLECTION - E-commerce cards */
-        .collection {
-            padding: 4rem 5%;
-            background: white;
+        .section {
+            padding: 4rem 0;
         }
 
         .section-header {
@@ -269,440 +70,963 @@
 
         .section-header p {
             color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .collection-grid {
-            max-width: 1200px;
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bg);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--bg-light);
+        }
+
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1rem;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .product-card {
-            background: white;
-            border-radius: 8px;
+            background: var(--bg);
+            border-radius: var(--radius);
             overflow: hidden;
-            transition: all 0.3s;
-            border: 1px solid var(--border);
-            position: relative;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08); /* Fixed: removed extra comma */
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
 
-        .product-card img {
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
             width: 100%;
-            height: 280px;
+            height: 100%;
             object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
         }
 
         .product-info {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .product-info h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
             color: var(--primary);
-            font-weight: 600;
         }
 
         .product-price {
-            font-size: 1.25rem;
-            color: var(--primary);
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
         }
 
         .product-description {
             color: var(--text-light);
-            font-size: 0.9rem;
             margin-bottom: 1.5rem;
-            line-height: 1.5;
+            flex-grow: 1;
         }
 
-        /* CHECKOUT BUTTON - Blue gradient */
-        .checkout-button {
-            background: var(--accent);
-            color: white;
-            padding: 0.9rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .checkout-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-        }
-
-        /* TESTIMONIALS */
+        /* Testimonials */
         .testimonials {
-            padding: 4rem 5%;
-            background: #f9fafb;
+            background: var(--bg-light);
         }
 
-        .testimonials-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .testimonial-slider {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding-bottom: 1rem;
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .testimonial-card {
-            flex: 0 0 350px;
-            background: white;
+            background: var(--bg);
             padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            scroll-snap-align: start;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
 
-        .stars {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text);
         }
 
         .testimonial-author {
-            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 0.25rem;
             color: var(--primary);
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Fixed: removed extra comma */
-                border-top: 1px solid var(--border);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .collection-grid {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-                gap: 1rem;
-            }
-
-            .product-card img {
-                height: 200px;
-            }
+        .contact-details p {
+            color: var(--text-light);
         }
 
-        /* ANIMATIONS */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s ease;
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 2rem;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        /* NOTIFICATION */
-        .cart-notification {
+        .footer-col h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
             position: fixed;
-            top: 100px;
-            right: 20px;
-            background: white;
-            border: 2px solid var(--accent);
-            color: var(--primary);
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Fixed: removed extra comma */
-            z-index: 10000;
-            font-weight: 600;
-            transform: translateX(400px);
-            transition: transform 0.3s;
-            max-width: 300px;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 100;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
         }
 
-        .cart-notification.show {
-            transform: translateX(0);
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--bg);
+                width: 100%;
+                text-align: center;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .whatsapp-float {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .feature-card, .testimonial-card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="logo">BONGZITO</div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#collection">Shop</a></li>
-            <li><a href="#testimonials">Reviews</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#" class="cta-button" style="padding: 0.6rem 1.8rem; font-size: 0.9rem;">🛒 Shop Now</a></li>
-        </ul>
-        <div class="mobile-menu" id="mobileMenu">
-            <span></span>
-            <span></span>
-            <span></span>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">BONG<span>ZITO</span></a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#products" class="btn">Shop Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero with YOUR images -->
-    <section class="hero-slideshow" id="home">
-        <div class="slide active">
-            <img src="images/IMG-20251105-WA0008.jpg" alt="Bongzito Collection">
-            <div class="slide-content">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
                 <h1>Premium Eyewear Collection</h1>
-                <p>Style meets protection in every pair</p>
-                <a href="#collection" class="cta-button">Shop All Sunglasses</a>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="images/IMG-20251105-WA0014.jpg" alt="Bongzito Sports">
-            <div class="slide-content">
-                <h1>UV400 Certified Protection</h1>
-                <p>Shield your eyes with certified safety</p>
-                <a href="#collection" class="cta-button">Explore Collection</a>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="images/IMG-20251105-WA0010.jpg" alt="Fashion"> <!-- Fixed: changed to your image -->
-            <div class="slide-content">
-                <h1>Free Shipping Nationwide</h1>
-                <p>On orders over R150</p>
-                <a href="#collection" class="cta-button">Shop Best Sellers</a>
-            </div>
-        </div>
-        <button class="prev" id="prevBtn">‹</button>
-        <button class="next" id="nextBtn">›</button>
-        <div class="slideshow-controls" id="dotsContainer"></div>
-    </section>
-
-    <!-- Features -->
-    <section class="features">
-        <div class="features-container">
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🛡️</div>
-                <h3>UV400 Protection</h3>
-                <p>Complete protection from harmful UV rays</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">✨</div>
-                <h3>Polarized Lenses</h3>
-                <p>Reduce glare for crystal-clear vision</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🚚</div> <!-- Fixed: closed icon div -->
-                <h3>Free Shipping</h3>
-                <p>On orders over R150 nationwide</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">💰</div>
-                <h3>Dropshipping Prices</h3>
-                <p>Affordable luxury direct to you</p>
-            </div>
-        </div>
-    </section> <!-- Fixed: removed extra closing div -->
-
-    <!-- Collection -->
-    <section class="collection" id="collection">
-        <div class="section-header">
-            <h2>Our Premium Collection</h2>
-            <p>12 exclusive styles for every personality</p>
-        </div>
-        <div class="collection-grid" id="collectionGrid"></div>
-    </section> <!-- Fixed: added missing closing section tag -->
-
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-header">
-            <h2>Customer Reviews</h2>
-            <p>What our customers say about us</p>
-        </div>
-        <div class="testimonials-container">
-            <div class="testimonial-slider">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"The quality is amazing and the shipping was super fast. Will definitely order again!"</p>
-                    <div class="testimonial-author">- Sarah M.</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Perfect fit and the lenses are crystal clear. Great value for money!"</p>
-                    <div class="testimonial-author">- John D.</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"I get compliments every time I wear these. The quality is exceptional!"</p>
-                    <div class="testimonial-author">- Lisa T.</div>
+                <p>Discover our exclusive range of UV400 protected sunglasses with polarized lenses. Style, protection, and comfort in every pair.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn">Shop Collection</a>
+                    <a href="#features" class="btn" style="background: transparent; color: var(--accent); border: 2px solid var(--accent);">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="collection" id="contact" style="background: #f9fafb;">
-        <div class="section-header">
-            <h2>Contact Us</h2>
-            <p>Get in touch with our customer service</p>
-        </div>
-        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-            <p>Email: info@bongzito.com</p>
-            <p>Phone: +27 12 345 6789</p>
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Bongzito</h2>
+                <p>We offer premium quality eyewear with cutting-edge features</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>UV400 Protection</h3>
+                    <p>Complete protection from harmful UVA and UVB rays with certified UV400 lenses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Polarized Lenses</h3>
+                    <p>Reduce glare and enhance visual clarity with our premium polarized lens technology.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Free Shipping</h3>
+                    <p>Free nationwide delivery on all orders over R150. Fast and reliable shipping.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3>Best Prices</h3>
+                    <p>Affordable luxury with our direct-to-consumer model. No middlemen, better prices.</p>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Products Section -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Premium Collection</h2>
+                <p>Handpicked styles for every occasion and personality</p>
+            </div>
+            <div class="products-grid" id="productsContainer">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Customer Reviews</h2>
+                <p>See what our customers are saying about Bongzito Eyewear</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The quality is exceptional! I've received so many compliments on my Bongzito sunglasses. The UV protection is noticeable, and they're so comfortable to wear all day."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Johannesburg</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"I was skeptical at first, but these are the best sunglasses I've owned. The polarization makes a huge difference when driving. Fast shipping too!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TJ</div>
+                        <div class="author-info">
+                            <h4>Thomas Johnson</h4>
+                            <p>Cape Town</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Amazing value for money! The build quality rivals brands that cost three times as much. I'll definitely be buying more pairs for gifts."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LR</div>
+                        <div class="author-info">
+                            <h4>Lisa Roberts</h4>
+                            <p>Durban</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our customer service team</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>sales@bongzitoeyewear.co.za</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p>+27 71 783 2240</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 8am - 5pm</p>
+                            <p>Saturday: 9am - 1pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a message</h3>
+                    <form id="contactForm">
+                        <div style="margin-bottom: 1rem;">
+                            <input type="text" placeholder="Your Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <textarea placeholder="Your Message" rows="5" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius);"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-block">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Bongzito Eyewear</h3>
+                    <p>Premium quality sunglasses with UV400 protection and polarized lenses. Style and protection in every pair.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:sales@bongzitoeyewear.co.za">sales@bongzitoeyewear.co.za</a></li>
+                        <li><a href="tel:+27717832240">+27 71 783 2240</a></li>
+                        <li>South Africa</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Bongzito Eyewear. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/27717832240?text=Hi%20Bongzito%20Eyewear,%20I'm%20interested%20in%20your%20products" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
         // Product Data
         const products = [
             {
                 id: 1,
-                name: "Classic Black Frames",
-                price: "149.99",
-                description: "Timeless black frames with UV400 protection",
+                name: "Classic Aviator",
+                price: "R149.99",
+                description: "Timeless aviator style with UV400 protection and gold metal frames. Perfect for everyday wear.",
                 image: "images/IMG-20251105-WA0008.jpg"
             },
             {
                 id: 2,
-                name: "Sport Blue Lenses",
-                price: "169.99",
-                description: "Sporty design with blue polarized lenses",
+                name: "Sport Polarized",
+                price: "R169.99",
+                description: "Sporty design with blue polarized lenses. Enhanced contrast and reduced glare for active lifestyles.",
                 image: "images/IMG-20251105-WA0014.jpg"
             },
             {
                 id: 3,
-                name: "Vintage Brown Frames",
-                price: "159.99",
-                description: "Vintage-inspired brown frames with classic appeal",
+                name: "Vintage Round",
+                price: "R159.99",
+                description: "Retro-inspired round frames with brown tinted lenses. A classic look with modern UV protection.",
                 image: "images/IMG-20251105-WA0010.jpg"
             },
             {
                 id: 4,
-                name: "Modern Silver Frames",
-                price: "179.99",
-                description: "Contemporary silver frames with anti-glare coating",
+                name: "Modern Square",
+                price: "R179.99",
+                description: "Contemporary square frames with silver metal accents. Stylish design with maximum eye protection.",
                 image: "images/IMG-20251105-WA0012.jpg"
+            },
+            {
+                id: 5,
+                name: "Luxury Gold",
+                price: "R189.99",
+                description: "Premium gold frames with gradient lenses. Elegant design that combines style and functionality.",
+                image: "images/IMG-20251105-WA0011.jpg"
+            },
+            {
+                id: 6,
+                name: "Retro Cat Eye",
+                price: "R164.99",
+                description: "Fashionable cat eye frames with UV400 protection. A feminine touch with superior lens quality.",
+                image: "images/IMG-20251105-WA0009.jpg"
+            },
+            {
+                id: 7,
+                name: "Oversized Fashion",
+                price: "R174.99",
+                description: "Trendy oversized frames for maximum coverage. Polarized lenses reduce glare in bright conditions.",
+                image: "images/IMG-20251105-WA0007.jpg"
+            },
+            {
+                id: 8,
+                name: "Classic Wayfarer",
+                price: "R169.99",
+                description: "Iconic wayfarer design with black frames. Timeless style with modern UV400 lens technology.",
+                image: "images/IMG-20251105-WA0006.jpg"
             }
         ];
 
-        // Slideshow functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.getElementById('dotsContainer');
-        
-        // Create dots for slideshow
-        slides.forEach((_, i) => {
-            const dot = document.createElement('div');
-            dot.className = `dot ${i === 0 ? 'active' : ''}`;
-            dot.addEventListener('click', () => goToSlide(i));
-            dotsContainer.appendChild(dot);
+        // DOM Content Loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load Products
+            loadProducts();
+            
+            // Mobile Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Contact form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
         });
-        
-        function goToSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            dotsContainer.children[currentSlide].classList.remove('active');
-            
-            currentSlide = (n + slides.length) % slides.length;
-            
-            slides[currentSlide].classList.add('active');
-            dotsContainer.children[currentSlide].classList.add('active');
-        }
-        
-        function nextSlide() {
-            goToSlide(currentSlide + 1);
-        }
-        
-        function prevSlide() {
-            goToSlide(currentSlide - 1);
-        }
-        
-        // Auto-advance slideshow
-        setInterval(nextSlide, 5000);
-        
-        // Add event listeners to navigation buttons
-        document.getElementById('prevBtn').addEventListener('click', prevSlide);
-        document.getElementById('nextBtn').addEventListener('click', nextSlide);
 
-        // Product loading and checkout functionality
+        // Load Products Function
         function loadProducts() {
-            const grid = document.getElementById('collectionGrid');
+            const container = document.getElementById('productsContainer');
+            
             products.forEach((product, index) => {
                 const card = document.createElement('div');
-                card.className = 'product-card fade-in';
+                card.className = 'product-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
                 card.innerHTML = `
                     <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200?text=Product+Image'">
+                        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'">
                     </div>
                     <div class="product-info">
                         <h3>${product.name}</h3>
-                        <p class="product-price">R${product.price}</p> <!-- Fixed: removed extra $ -->
+                        <div class="product-price">${product.price}</div>
                         <p class="product-description">${product.description}</p>
-                        <button class="checkout-button" onclick="checkoutProduct(${product.id})">
-                            🔒 Checkout Now
+                        <button class="btn btn-whatsapp btn-block" onclick="orderOnWhatsApp(${product.id})">
+                            <i class="fab fa-whatsapp"></i> Order on WhatsApp
                         </button>
                     </div>
                 `;
-                setTimeout(() => {
-                    grid.appendChild(card);
-                    card.classList.add('visible');
-                }, index * 100);
+                
+                container.appendChild(card);
             });
         }
 
-        function checkoutProduct(productId) {
+        // WhatsApp Order Function
+        function orderOnWhatsApp(productId) {
             const product = products.find(p => p.id === productId);
-            const notification = document.createElement('div');
-            notification.className = 'cart-notification show';
-            notification.innerHTML = `
-                <div style="font-size: 0.9rem; margin-bottom: 0.25rem;">${product.name}</div>
-                <div style="color: var(--accent); font-weight: 700;">R${product.price}</div> <!-- Fixed: removed extra $ -->
-                <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.25rem;">✓ Added to checkout</div>
-            `;
-            document.body.appendChild(notification);
-            setTimeout(() => {
-                notification.classList.remove('show');
-                setTimeout(() => document.body.removeChild(notification), 400);
-            }, 2000);
-            console.log(`Checkout: ${product.name} - R${product.price}`);
+            const message = `Hi Bongzito Eyewear! I'm interested in ordering the ${product.name} for ${product.price}. Please provide more details.`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/27717832240?text=${encodedMessage}`, '_blank');
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadProducts();
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-            
-            document.getElementById('mobileMenu').addEventListener('click', () => {
-                document.getElementById('navLinks').classList.toggle('active');
-            });
-        });
     </script>
 </body>
 </html>
