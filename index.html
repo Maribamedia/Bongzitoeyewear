@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bongzito Eyewear - Premium Sunglasses & Eyewear</title>
+    <title>Bongzito Eyewear - Premium Sunglasses</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* CSS Variables */
@@ -134,14 +134,15 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
+            display: flex;
+            align-items: center;
             text-decoration: none;
         }
 
-        .logo span {
-            color: var(--accent);
+        .logo-img {
+            height: 40px;
+            width: auto;
+            transition: var(--transition);
         }
 
         .nav-menu {
@@ -193,40 +194,116 @@
             border-radius: 2px;
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0 4rem;
-            background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+        /* Hero Slideshow Section */
+        .hero-slideshow {
             position: relative;
+            height: 80vh;
+            margin-top: 70px;
             overflow: hidden;
         }
 
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--text-light);
-        }
-
-        .hero-buttons {
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
             display: flex;
-            gap: 1rem;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: var(--radius);
+            backdrop-filter: blur(10px);
+        }
+
+        .slide-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .slideshow-controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 3;
+        }
+
+        .slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slide-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .slide-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .slide-prev {
+            left: 2rem;
+        }
+
+        .slide-next {
+            right: 2rem;
         }
 
         /* Features Section */
@@ -313,6 +390,10 @@
             height: 250px;
             overflow: hidden;
             position: relative;
+            background: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .product-image img {
@@ -512,13 +593,14 @@
         }
 
         .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .footer-logo span {
-            color: var(--accent);
+        .footer-logo-img {
+            height: 30px;
+            width: auto;
         }
 
         .footer-links {
@@ -624,21 +706,31 @@
                 transform: rotate(-45deg) translate(7px, -6px);
             }
 
-            .hero {
-                padding: 6rem 0 3rem;
+            .hero-slideshow {
+                height: 60vh;
+                margin-top: 60px;
             }
 
-            .hero h1 {
+            .slide-content h1 {
                 font-size: 2rem;
             }
 
-            .hero p {
+            .slide-content p {
                 font-size: 1rem;
             }
 
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
+            .slide-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .slide-prev {
+                left: 1rem;
+            }
+
+            .slide-next {
+                right: 1rem;
             }
 
             .section {
@@ -666,6 +758,10 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+
+            .logo-img {
+                height: 35px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -673,8 +769,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .hero h1 {
-                font-size: 1.75rem;
+            .hero-slideshow {
+                height: 50vh;
+            }
+
+            .slide-content h1 {
+                font-size: 1.5rem;
             }
             
             .feature-card, .testimonial-card {
@@ -687,7 +787,9 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">BONG<span>ZITO</span></a>
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="Bongzito Eyewear" class="logo-img">
+            </a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#products" class="nav-link">Products</a></li>
@@ -704,17 +806,40 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
+    <!-- Hero Slideshow Section -->
+    <section class="hero-slideshow" id="home">
+        <div class="slide active">
+            <img src="images/slide1.jpg" alt="Premium Eyewear Collection" class="slide-image">
+            <div class="slide-content">
                 <h1>Premium Eyewear Collection</h1>
-                <p>Discover our exclusive range of UV400 protected sunglasses with polarized lenses. Style, protection, and comfort in every pair.</p>
-                <div class="hero-buttons">
-                    <a href="#products" class="btn">Shop Collection</a>
-                    <a href="#features" class="btn" style="background: transparent; color: var(--accent); border: 2px solid var(--accent);">Learn More</a>
-                </div>
+                <p>Discover our exclusive range of UV400 protected sunglasses with polarized lenses</p>
+                <a href="#products" class="btn">Shop Collection</a>
             </div>
+        </div>
+        <div class="slide">
+            <img src="images/slide2.jpg" alt="UV400 Protection" class="slide-image">
+            <div class="slide-content">
+                <h1>UV400 Certified Protection</h1>
+                <p>Complete protection from harmful UV rays with certified lenses</p>
+                <a href="#features" class="btn">Learn More</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="images/slide3.jpg" alt="Free Shipping" class="slide-image">
+            <div class="slide-content">
+                <h1>Free Shipping Nationwide</h1>
+                <p>On all orders over R150. Fast and reliable delivery</p>
+                <a href="#products" class="btn">Shop Now</a>
+            </div>
+        </div>
+        
+        <!-- Navigation Controls -->
+        <button class="slide-nav slide-prev">‹</button>
+        <button class="slide-nav slide-next">›</button>
+        <div class="slideshow-controls">
+            <div class="slide-dot active"></div>
+            <div class="slide-dot"></div>
+            <div class="slide-dot"></div>
         </div>
     </section>
 
@@ -899,7 +1024,9 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">BONG<span>ZITO</span></div>
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Bongzito Eyewear" class="footer-logo-img">
+                </div>
                 <div class="footer-links">
                     <a href="#home">Home</a>
                     <a href="#products">Products</a>
@@ -920,93 +1047,130 @@
     </a>
 
     <script>
-        // Product Data with updated prices
+        // Product Data with updated prices and local images
         const products = [
             {
                 id: 1,
                 name: "Classic Black & Blue",
                 price: "R170",
                 description: "Black frames with dark blue lens style sunglasses. Perfect for everyday casual wear with UV400 protection.",
-                image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product1.jpg"
             },
             {
                 id: 2,
                 name: "Vintage Brown Double Bridge",
                 price: "R120",
                 description: "Brown lens lightweight construction for all day comfort and a double bridge for a distinctive, classic look.",
-                image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product2.jpg"
             },
             {
                 id: 3,
                 name: "Black Frames Green Lens",
                 price: "R170",
                 description: "Stylish design black sunglasses with dark green lenses for men. Modern look with maximum eye protection.",
-                image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product3.jpg"
             },
             {
                 id: 4,
                 name: "Sport Silver Frames",
                 price: "R180",
                 description: "Unisex sports style sunglasses with silver frames. Durable and lightweight for active lifestyles.",
-                image: "https://images.unsplash.com/photo-1583336663277-620dc1996580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product4.jpg"
             },
             {
                 id: 5,
                 name: "Classic All Black Female",
                 price: "R130",
                 description: "Classic all black sunglasses for females. Timeless elegance with modern UV protection technology.",
-                image: "https://images.unsplash.com/photo-1571687949921-1306bfb24c72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product5.jpg"
             },
             {
                 id: 6,
                 name: "Double Bridge Blue",
                 price: "R130",
                 description: "Dark blue lens lightweight construction for all day comfort and a double bridge for a distinctive, classic look.",
-                image: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product6.jpg"
             },
             {
                 id: 7,
                 name: "All Black Female Style",
                 price: "R130",
                 description: "All black female style sunglasses. Sleek design with polarized lenses for superior visual clarity.",
-                image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product7.jpg"
             },
             {
                 id: 8,
                 name: "Thick Frame Black Women",
                 price: "R190",
                 description: "Thick frame all black sunglasses for women. Bold statement piece with maximum coverage and protection.",
-                image: "https://images.unsplash.com/photo-1571687949921-1306bfb24c72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product8.jpg"
             },
             {
                 id: 9,
                 name: "Purple Sports Unisex",
                 price: "R180",
                 description: "Purple sports style sunglasses unisex. Vibrant color with durable construction for active use.",
-                image: "https://images.unsplash.com/photo-1583336663277-620dc1996580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product9.jpg"
             },
             {
                 id: 10,
                 name: "Black Frames Colorful Lens",
                 price: "R220",
                 description: "Black frames with colourful lenses sports style sunglasses unisex. Fun and functional for outdoor activities.",
-                image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product10.jpg"
             },
             {
                 id: 11,
                 name: "White Frames Colorful Lens",
                 price: "R220",
                 description: "White frames with colourful lenses sports style sunglasses unisex. Bright and bold design for fashion-forward individuals.",
-                image: "https://images.unsplash.com/photo-1571687949921-1306bfb24c72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product11.jpg"
             },
             {
                 id: 12,
                 name: "Green Stylish Women",
                 price: "R200",
                 description: "Green colour stylish sunglasses for women. Fashionable frames with premium lens technology for clear vision.",
-                image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "images/product12.jpg"
             }
         ];
+
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slide-dot');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            // Remove active class from all slides and dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Update current slide
+            currentSlide = (n + totalSlides) % totalSlides;
+            
+            // Add active class to current slide and dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto advance slides
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        // Pause auto-advance on hover
+        const slideshow = document.querySelector('.hero-slideshow');
+        slideshow.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        slideshow.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        });
 
         // DOM Content Loaded
         document.addEventListener('DOMContentLoaded', function() {
@@ -1038,6 +1202,20 @@
                 } else {
                     navbar.classList.remove('scrolled');
                 }
+            });
+            
+            // Slideshow controls
+            document.querySelector('.slide-next').addEventListener('click', nextSlide);
+            document.querySelector('.slide-prev').addEventListener('click', prevSlide);
+            
+            // Dot controls
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    // Reset auto-advance timer
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
             });
             
             // Contact form submission
