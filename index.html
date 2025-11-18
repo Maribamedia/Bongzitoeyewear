@@ -576,6 +576,32 @@
             color: white;
         }
 
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
         .footer-bottom {
             text-align: center;
             padding-top: 1.5rem;
@@ -677,6 +703,12 @@
                 padding: 0.75rem 2rem;
                 font-size: 1.1rem;
             }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1.1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -698,6 +730,12 @@
 
             .shop-now-btn {
                 padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .social-icon {
+                width: 32px;
+                height: 32px;
                 font-size: 1rem;
             }
         }
@@ -926,6 +964,15 @@
                     <a href="#features">Features</a>
                     <a href="#testimonials">Reviews</a>
                     <a href="#contact">Contact</a>
+                </div>
+                <!-- Social Media Icons -->
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
