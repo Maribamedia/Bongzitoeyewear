@@ -1236,6 +1236,14 @@
                     }, 5000);
                 }
             });
+            
+            // Change free shipping text
+            const shippingIcon = document.querySelector('.fa-shipping-fast');
+            if (shippingIcon) {
+                const featureCard = shippingIcon.closest('.feature-card');
+                const paragraph = featureCard.querySelector('p');
+                paragraph.textContent = 'Free nationwide delivery on all orders over R800. Fast and reliable shipping.';
+            }
         });
 
         // Load Products Function
