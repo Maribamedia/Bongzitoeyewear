@@ -535,8 +535,8 @@
 
         /* Footer */
         .footer {
-            background: #ffffff; /* Changed from dark to white */
-            color: #000000; /* Changed from white to black */
+            background: #ffffff;
+            color: #000000;
             padding: 2rem 0 1rem;
             border-top: 1px solid #e5e7eb;
         }
@@ -568,7 +568,7 @@
         }
 
         .footer-links a {
-            color: #333333; /* Changed from light gray to dark */
+            color: #333333;
             text-decoration: none;
             transition: var(--transition);
         }
@@ -590,9 +590,9 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: #f3f4f6; /* Changed from dark to light */
+            background: #f3f4f6;
             border-radius: 50%;
-            color: #333333; /* Changed from white to dark */
+            color: #333333;
             text-decoration: none;
             transition: var(--transition);
             font-size: 1.2rem;
@@ -611,7 +611,7 @@
         }
 
         .payment-partners p {
-            color: #666666; /* Changed from light gray to dark gray */
+            color: #666666;
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
         }
@@ -627,7 +627,6 @@
         .payment-logo {
             height: 25px;
             width: auto;
-            /* Removed filter: brightness(0) invert(1); */
             opacity: 0.8;
             transition: var(--transition);
         }
@@ -640,8 +639,8 @@
             text-align: center;
             padding-top: 1.5rem;
             margin-top: 1.5rem;
-            border-top: 1px solid #e5e7eb; /* Changed from dark to light */
-            color: #666666; /* Changed from light gray to dark gray */
+            border-top: 1px solid #e5e7eb;
+            color: #666666;
             font-size: 0.9rem;
         }
 
@@ -843,7 +842,7 @@
                         <i class="fas fa-shipping-fast"></i>
                     </div>
                     <h3>Free Shipping</h3>
-                    <p>Free nationwide delivery on all orders over R150. Fast and reliable shipping.</p>
+                    <p>Free nationwide delivery on all orders over R800. Fast and reliable shipping.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -1236,14 +1235,6 @@
                     }, 5000);
                 }
             });
-            
-            // Change free shipping text
-            const shippingIcon = document.querySelector('.fa-shipping-fast');
-            if (shippingIcon) {
-                const featureCard = shippingIcon.closest('.feature-card');
-                const paragraph = featureCard.querySelector('p');
-                paragraph.textContent = 'Free nationwide delivery on all orders over R800. Fast and reliable shipping.';
-            }
         });
 
         // Load Products Function
