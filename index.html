@@ -535,9 +535,10 @@
 
         /* Footer */
         .footer {
-            background: var(--primary);
-            color: white;
+            background: #ffffff; /* Changed from dark to white */
+            color: #000000; /* Changed from white to black */
             padding: 2rem 0 1rem;
+            border-top: 1px solid #e5e7eb;
         }
 
         .footer-content {
@@ -567,13 +568,13 @@
         }
 
         .footer-links a {
-            color: #d1d5db;
+            color: #333333; /* Changed from light gray to dark */
             text-decoration: none;
             transition: var(--transition);
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--accent);
         }
 
         /* Social Media Icons */
@@ -589,9 +590,9 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background: #f3f4f6; /* Changed from dark to light */
             border-radius: 50%;
-            color: white;
+            color: #333333; /* Changed from white to dark */
             text-decoration: none;
             transition: var(--transition);
             font-size: 1.2rem;
@@ -599,6 +600,7 @@
 
         .social-icon:hover {
             background: var(--accent);
+            color: white;
             transform: translateY(-3px);
         }
 
@@ -609,7 +611,7 @@
         }
 
         .payment-partners p {
-            color: #d1d5db;
+            color: #666666; /* Changed from light gray to dark gray */
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
         }
@@ -625,7 +627,7 @@
         .payment-logo {
             height: 25px;
             width: auto;
-            filter: brightness(0) invert(1);
+            /* Removed filter: brightness(0) invert(1); */
             opacity: 0.8;
             transition: var(--transition);
         }
@@ -638,8 +640,8 @@
             text-align: center;
             padding-top: 1.5rem;
             margin-top: 1.5rem;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
+            border-top: 1px solid #e5e7eb; /* Changed from dark to light */
+            color: #666666; /* Changed from light gray to dark gray */
             font-size: 0.9rem;
         }
 
